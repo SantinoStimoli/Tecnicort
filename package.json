@@ -5,10 +5,10 @@
   "type": "module",
   "homepage": "https://santino-stimoli.github.io/Tecnicort",
   "scripts": {
-    "d": "vite",
-    "b": "tsc && vite build",
-    "g": "npm run b && gh-pages -d dist",
+    "dev": "vite",
+    "build": "tsc && vite build",
     "deploy": "gh-pages -d dist",
+    "page": "git commit -a -m=$MES",
     "preview": "vite preview",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
