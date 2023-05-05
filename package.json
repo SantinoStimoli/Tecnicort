@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "deploy": "gh-pages -d dist",
-    "page": "git commit -a -m=$MES",
+    "page": "git commit -a -m=%m && git push && npm run build && npm run deploy",
     "preview": "vite preview",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
