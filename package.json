@@ -3,13 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/santino-stimoli/Tecnicort",
+  "homepage": "https://santino-stimoli.github.io/Tecnicort",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "d": "vite",
+    "b": "tsc && vite build",
+    "g": "npm run build && gh-pages -d dist",
     "deploy": "gh-pages -d dist",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "boxicons": "^2.1.4",
