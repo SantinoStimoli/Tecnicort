@@ -16,14 +16,10 @@ const App = () => {
     let order: Order = { productWidth: productWidth, productHeight: productHeight, stripWidth: stripWidth, stripThickness: stripThickness, stripColor: stripColor, price: (productHeight * productWidth * PRICEM2) }
     setOrders([...orders, order])
     cleanForm()
-    // setAddOrderModal(false)
   }
 
   const deleteOrder: any = (orderId: number) => {
-    let filteredOrders = orders.filter((e, i) => {
-      e
-      i !== orderId
-    })
+    let filteredOrders = orders.filter((e, i) => i !== orderId && e)
     setOrders(filteredOrders);
   }
 

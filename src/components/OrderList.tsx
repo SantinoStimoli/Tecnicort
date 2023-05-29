@@ -8,9 +8,6 @@ interface Props {
 }
 
 const OrderList = ({ order, deleteOrder, index }: Props) => {
-    console.log(order);
-
-
     return (
         <div key={index} className='order'>
             <span className={'flex items-center justify-between pb-2'}>Pedido: <i onClick={() => deleteOrder(index)} className='bx bx-x bx-md red' /></span>
