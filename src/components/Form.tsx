@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { FORMDATA } from '../services/info'
+import { FORM_DATA } from '../services/info'
 
 const Form = ({ refreshPage, addOrder }) => {
     const productWidth = useRef<HTMLInputElement>(null);
@@ -54,7 +54,7 @@ const Form = ({ refreshPage, addOrder }) => {
                             <span>Ancho (mm)</span>
                             <select required ref={stripWidth}>
                                 <option value={undefined}>No definido</option>
-                                {FORMDATA.stripWidth.map((e, i) => {
+                                {FORM_DATA.stripWidth.map((e, i) => {
                                     return (
                                         <option key={i} value={e}>{e}mm </option>
                                     )
@@ -65,7 +65,7 @@ const Form = ({ refreshPage, addOrder }) => {
                             <span>Espesor (mm)</span>
                             <select required ref={stripThickness}>
                                 <option value={undefined}>No definido</option>
-                                {FORMDATA.stripThickness.map((e, i) => {
+                                {FORM_DATA.stripThickness.map((e, i) => {
                                     return (
                                         <option key={i} value={e}>{e}mm </option>
                                     )
@@ -79,7 +79,7 @@ const Form = ({ refreshPage, addOrder }) => {
                             <span>Color</span>
                             <select required ref={stripColor}>
                                 <option value={undefined}>No definido</option>
-                                {FORMDATA.stripColor.map((e, i) => {
+                                {FORM_DATA.stripColor.map((e, i) => {
                                     return (
                                         <option key={i} value={e}>{e}</option>
                                     )

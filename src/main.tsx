@@ -8,5 +8,3 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <App />
   </React.StrictMode>
 )
-
-// añadir boton para limpiar pedidos, sacar el cliente, comportamiento null en valores

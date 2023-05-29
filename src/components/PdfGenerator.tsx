@@ -4,6 +4,7 @@ import html2pdf from 'html2pdf.js';
 import fondo from '../assets/fondo.jpg';
 import footer from '../assets/footer.jpg';
 import Table from './Table';
+import { STRIP__PROPS } from '../services/info';
 
 interface Props {
     orders: Array<Order>;
@@ -11,9 +12,9 @@ interface Props {
 }
 
 const PdfGenerator: React.FC<Props> = ({ orders, refreshPage }: Props) => {
+
     const [date, setDate] = useState('');
-    const text =
-        'Buen día, aquí le dejo el presupuesto del pedido que nos ha solicitado a través de nuestra página web. En caso de tener alguna duda o comentario, no dude en comunicarse con nosotros. Desde ya, muchas gracias y le deseamos que siga bien.';
+    const text = 'Buen día, aquí le dejo el presupuesto del pedido que nos ha solicitado a través de nuestra página web. En caso de tener alguna duda o comentario, no dude en comunicarse con nosotros. Desde ya, muchas gracias y le deseamos que siga bien.'
 
     const copyText = (texto: string) => {
         const input = document.createElement('input');
@@ -33,7 +34,7 @@ const PdfGenerator: React.FC<Props> = ({ orders, refreshPage }: Props) => {
             jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
         };
         html2pdf().set(options).from(element).save();
-        copyText(text);
+        copyText(getText());
     };
 
     const getDate = () => {
@@ -43,10 +44,36 @@ const PdfGenerator: React.FC<Props> = ({ orders, refreshPage }: Props) => {
         const year = currentDate.getFullYear();
         setDate(`${day}-${month}-${year}`);
     };
+    const getEmptyInfo = () => {
+        let emptyInfo = [];
+        orders.forEach(e => {
+            if (e.stripColor === 'No definido' && !emptyInfo.includes(STRIP__PROPS.color)) emptyInfo = [...emptyInfo, STRIP__PROPS.color]
+            if (e.stripThickness === 'No definido' && !emptyInfo.includes(STRIP__PROPS.thickness)) emptyInfo = [...emptyInfo, STRIP__PROPS.thickness]
+            if (e.stripWidth === 'No definido' && !emptyInfo.includes(STRIP__PROPS.width)) emptyInfo = [...emptyInfo, STRIP__PROPS.width]
+        })
+        return emptyInfo
+    }
+
+    const getText = () => {
+        let finalText = ' Elementos faltantes para la producción de la cortina: ';
+        let emptyElements = getEmptyInfo()
+
+        if (emptyElements.length === 0) return text
+
+        for (let i = 0; i < emptyElements.length; i++) {
+            if (i === 0) finalText = finalText + emptyElements[i];
+            if (i === 1 && emptyElements.length === 3) finalText = finalText + ', ' + emptyElements[i];
+            if (i === 1 && emptyElements.length === 2) finalText = finalText + ' y ' + emptyElements[i];
+            if (i === 2 && emptyElements.length === 3) finalText = finalText + ' y ' + emptyElements[i];
+        }
+
+        return text + finalText
+    }
 
     useEffect(() => {
         getDate();
     }, []);
+
 
     return (
         <section className="modal-bg pdf">
