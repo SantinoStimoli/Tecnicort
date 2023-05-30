@@ -12,10 +12,9 @@ const App = () => {
   const [pdfForm, setPdfForm] = useState(false)
   const [orders, setOrders] = useState<Array<Order>>([])
 
-  const addOrder: any = (productWidth: number, productHeight: number, stripWidth: number, stripThickness: number, stripColor: string, cleanForm: any) => {
+  const addOrder: any = (productWidth: number, productHeight: number, stripWidth: number, stripThickness: number, stripColor: string) => {
     let order: Order = { productWidth: productWidth, productHeight: productHeight, stripWidth: stripWidth, stripThickness: stripThickness, stripColor: stripColor, price: (productHeight * productWidth * PRICEM2) }
     setOrders([...orders, order])
-    cleanForm()
   }
 
   const deleteOrder: any = (orderId: number) => {

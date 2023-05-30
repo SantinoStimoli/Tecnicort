@@ -170,9 +170,21 @@ ul.info {
 }
 
 #title {
-    @apply text-4xl font-bold uppercase
+    @apply text-4xl font-bold uppercase absolute top-40
 }
 
 .date {
-    @apply absolute right-5 top-60 font-bold text-xl
+    @apply absolute right-5 top-44 font-bold text-xl
+}
+
+#pdf-content footer {
+    @apply w-full bg-red-600 py-4 text-white flex items-start text-xs
+}
+
+#pdf-content footer section>div {
+    @apply flex items-center mx-2
+}
+
+#pdf-content footer section>div>i {
+    @apply mr-1
 }

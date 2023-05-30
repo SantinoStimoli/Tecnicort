@@ -8,12 +8,13 @@ const Form = ({ refreshPage, addOrder }) => {
     const stripThickness = useRef<HTMLSelectElement>(null);
     const stripColor = useRef<HTMLSelectElement>(null);
 
-    const cleanForm = () => {
-        if (productWidth.current && productHeight.current) {
-            productWidth.current.value = '';
-            productHeight.current.value = '';
-        }
-    }
+    // const cleanForm = () => {
+    //     if (productWidth.current && productHeight.current) {
+    //         productWidth.current.value = '';
+    //         productHeight.current.value = '';
+    //         quantity.current.value = '1';
+    //     }
+    // }
 
     return (
         <section className='modal-bg' >
@@ -27,7 +28,6 @@ const Form = ({ refreshPage, addOrder }) => {
                         stripWidth.current?.value || '',
                         stripThickness.current?.value || '',
                         stripColor.current?.value || '',
-                        cleanForm
                     );
                 }}
             >
@@ -87,8 +87,6 @@ const Form = ({ refreshPage, addOrder }) => {
                             </select>
                         </div>
                     </section>
-
-
                 </article>
 
                 <footer className='footer'>

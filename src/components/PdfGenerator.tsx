@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Order } from '../interfaces/interfaces';
 import html2pdf from 'html2pdf.js';
 import fondo from '../assets/fondo.jpg';
-import footer from '../assets/footer.jpg';
 import Table from './Table';
 import { STRIP__PROPS } from '../services/info';
+import Footer from './Footer';
 
 interface Props {
     orders: Array<Order>;
@@ -83,7 +83,7 @@ const PdfGenerator: React.FC<Props> = ({ orders, refreshPage }: Props) => {
                     <p className="date">{date}</p>
                     <h1 id="title">Cortinas de PVC</h1>
                     <Table orders={orders} />
-                    <img className="relative -bottom-10" src={footer} alt="Footer" />
+                    <Footer />
                 </section>
 
                 <footer className="footer">
