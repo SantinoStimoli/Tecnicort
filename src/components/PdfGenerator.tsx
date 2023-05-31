@@ -86,7 +86,7 @@ const PdfGenerator: React.FC<Props> = ({ orders, refreshPage }: Props) => {
                     <Footer />
                 </section>
 
-                <footer className="footer">
+                <footer className="footer mt-5">
                     <button onClick={handleDownloadPDF}>Descargar PDF</button>
                     <button type="button" onClick={() => refreshPage()}>
                         Cancelar
