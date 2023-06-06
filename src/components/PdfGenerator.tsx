@@ -10,10 +10,10 @@ import fondo from '../assets/fondo.jpg';
 interface Props {
     orders: Array<Order>;
     refreshPage: any;
-    setOrders: any;
+    orderSended: any;
 }
 
-const PdfGenerator: React.FC<Props> = ({ orders, refreshPage, setOrders }: Props) => {
+const PdfGenerator: React.FC<Props> = ({ orders, refreshPage, orderSended }: Props) => {
 
     const [date, setDate] = useState('');
     const text = 'Buen día, aquí le dejo el presupuesto del pedido que nos ha solicitado a través de nuestra página web. En caso de tener alguna duda o comentario, no dude en comunicarse con nosotros. Desde ya, muchas gracias y le deseamos que siga bien.'
@@ -37,7 +37,7 @@ const PdfGenerator: React.FC<Props> = ({ orders, refreshPage, setOrders }: Props
         };
         html2pdf().set(options).from(element).save();
         copyText(getText());
-        setOrders([])
+        orderSended()
     };
 
     const getDate = () => {

@@ -22,12 +22,17 @@ const App = () => {
     setOrders(filteredOrders);
   }
 
+  const refreshPage = () => {
+    setOrders([])
+    setAddOrderModal(false)
+  }
+
   return (
     <main className="flex justify-center items-center h-screen">
       <div className="flex flex-col gap-5">
         {addOrderModal && <Form addOrder={addOrder} refreshPage={() => setAddOrderModal(false)} />}
         {listOrdersForm && <List orders={orders} refreshPage={() => setListOrdersForm(false)} deleteOrder={deleteOrder} emptyList={() => setOrders([])} />}
-        {pdfForm && <PdfGenerator orders={orders} refreshPage={() => setPdfForm(false)} setOrders={setOrders} />}
+        {pdfForm && <PdfGenerator orders={orders} refreshPage={() => setPdfForm(false)} orderSended={refreshPage} />}
 
         <button onClick={() => setAddOrderModal(true)}>Añadir pedido</button>
         <button onClick={() => setListOrdersForm(true)}>Ver pedidos</button>
