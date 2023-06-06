@@ -27,7 +27,7 @@ const App = () => {
       <div className="flex flex-col gap-5">
         {addOrderModal && <Form addOrder={addOrder} refreshPage={() => setAddOrderModal(false)} />}
         {listOrdersForm && <List orders={orders} refreshPage={() => setListOrdersForm(false)} deleteOrder={deleteOrder} emptyList={() => setOrders([])} />}
-        {pdfForm && <PdfGenerator orders={orders} refreshPage={() => setPdfForm(false)} />}
+        {pdfForm && <PdfGenerator orders={orders} refreshPage={() => setPdfForm(false)} setOrders={setOrders} />}
 
         <button onClick={() => setAddOrderModal(true)}>Añadir pedido</button>
         <button onClick={() => setListOrdersForm(true)}>Ver pedidos</button>

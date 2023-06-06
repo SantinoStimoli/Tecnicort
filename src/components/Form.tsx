@@ -91,7 +91,7 @@ const Form = ({ refreshPage, addOrder }) => {
 
                 <footer className='footer'>
                     <button type='submit'>Añadir</button>
-                    <button type='button' onClick={() => refreshPage()} >Cancelar</button>
+                    <button type='button' onClick={() => refreshPage()} >Cerrar</button>
                 </footer>
             </form>
         </section >

@@ -10,9 +10,10 @@ import fondo from '../assets/fondo.jpg';
 interface Props {
     orders: Array<Order>;
     refreshPage: any;
+    setOrders: any;
 }
 
-const PdfGenerator: React.FC<Props> = ({ orders, refreshPage }: Props) => {
+const PdfGenerator: React.FC<Props> = ({ orders, refreshPage, setOrders }: Props) => {
 
     const [date, setDate] = useState('');
     const text = 'Buen día, aquí le dejo el presupuesto del pedido que nos ha solicitado a través de nuestra página web. En caso de tener alguna duda o comentario, no dude en comunicarse con nosotros. Desde ya, muchas gracias y le deseamos que siga bien.'
@@ -36,6 +37,7 @@ const PdfGenerator: React.FC<Props> = ({ orders, refreshPage }: Props) => {
         };
         html2pdf().set(options).from(element).save();
         copyText(getText());
+        setOrders([])
     };
 
     const getDate = () => {
@@ -57,7 +59,7 @@ const PdfGenerator: React.FC<Props> = ({ orders, refreshPage }: Props) => {
     }
 
     const getText = () => {
-        let finalText = ' Elementos faltantes para la producción de la cortina: ';
+        let finalText = ' *Elementos faltantes para la producción de la cortina: ';
         let emptyElements = getEmptyInfo()
 
         if (emptyElements.length === 0) return text
@@ -65,8 +67,7 @@ const PdfGenerator: React.FC<Props> = ({ orders, refreshPage }: Props) => {
         for (let i = 0; i < emptyElements.length; i++) {
             if (i === 0) finalText = finalText + emptyElements[i];
             if (i === 1 && emptyElements.length === 3) finalText = finalText + ', ' + emptyElements[i];
-            if (i === 1 && emptyElements.length === 2) finalText = finalText + ' y ' + emptyElements[i];
-            if (i === 2 && emptyElements.length === 3) finalText = finalText + ' y ' + emptyElements[i];
+            if ((i === 1 && emptyElements.length === 2) || (i === 2 && emptyElements.length === 3)) finalText = finalText + ' y ' + emptyElements[i];
         }
 
         return text + finalText
