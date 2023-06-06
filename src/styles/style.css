@@ -79,6 +79,16 @@ form section {
     @apply flex items-center
 }
 
+@media (max-width:470px) {
+    form section {
+        @apply flex flex-col
+    }
+
+    form section>* {
+        @apply w-full
+    }
+}
+
 .div-input {
     @apply flex flex-col px-2
 }
