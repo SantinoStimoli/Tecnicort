@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Order } from '../interfaces/interfaces';
 import html2pdf from 'html2pdf.js';
-import fondo from '../assets/fondo.jpg';
 import Table from './Table';
 import { STRIP__PROPS } from '../services/info';
 import Footer from './Footer';
+import fondo from '../assets/fondo.jpg';
+
 
 interface Props {
     orders: Array<Order>;
@@ -44,6 +45,7 @@ const PdfGenerator: React.FC<Props> = ({ orders, refreshPage }: Props) => {
         const year = currentDate.getFullYear();
         setDate(`${day}-${month}-${year}`);
     };
+
     const getEmptyInfo = () => {
         let emptyInfo = [];
         orders.forEach(e => {
