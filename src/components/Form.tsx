@@ -1,23 +1,16 @@
 import { useRef } from 'react'
 import { FORM_DATA } from '../services/info'
 
-const Form = ({ refreshPage, addOrder }) => {
+const Form = ({ addOrder, emptyList, emptyCondition }) => {
+
     const productWidth = useRef<HTMLInputElement>(null);
     const productHeight = useRef<HTMLInputElement>(null);
     const stripWidth = useRef<HTMLSelectElement>(null);
     const stripThickness = useRef<HTMLSelectElement>(null);
     const stripColor = useRef<HTMLSelectElement>(null);
 
-    // const cleanForm = () => {
-    //     if (productWidth.current && productHeight.current) {
-    //         productWidth.current.value = '';
-    //         productHeight.current.value = '';
-    //         quantity.current.value = '1';
-    //     }
-    // }
-
     return (
-        <section className='modal-bg' >
+        <section className='static-bg' >
             <form
                 className="modal"
                 onSubmit={(e) => {
@@ -91,7 +84,7 @@ const Form = ({ refreshPage, addOrder }) => {
 
                 <footer className='footer'>
                     <button type='submit'>Añadir</button>
-                    <button type='button' onClick={() => refreshPage()} >Cerrar</button>
+                    {emptyCondition && <button type='button' onClick={() => emptyList()}>Vaciar lista</button>}
                 </footer>
             </form>
         </section >

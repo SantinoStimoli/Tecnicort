@@ -7,7 +7,7 @@ import { PRICEM2 } from "./services/info";
 import PdfGenerator from "./components/PdfGenerator";
 
 const App = () => {
-  const [addOrderModal, setAddOrderModal] = useState(false)
+
   const [listOrdersForm, setListOrdersForm] = useState(false)
   const [pdfForm, setPdfForm] = useState(false)
   const [orders, setOrders] = useState<Array<Order>>([])
@@ -24,19 +24,24 @@ const App = () => {
 
   const refreshPage = () => {
     setOrders([])
-    setAddOrderModal(false)
+    setPdfForm(false)
+  }
+
+  const emptyList = () => {
+    setOrders([])
+    setListOrdersForm(false)
   }
 
   return (
     <main className="flex justify-center items-center h-screen">
       <div className="flex flex-col gap-5">
-        {addOrderModal && <Form addOrder={addOrder} refreshPage={() => setAddOrderModal(false)} />}
-        {listOrdersForm && <List orders={orders} refreshPage={() => setListOrdersForm(false)} deleteOrder={deleteOrder} emptyList={() => setOrders([])} />}
+        {listOrdersForm && <List orders={orders} refreshPage={() => setListOrdersForm(false)} deleteOrder={deleteOrder} emptyList={emptyList} />}
         {pdfForm && <PdfGenerator orders={orders} refreshPage={() => setPdfForm(false)} orderSended={refreshPage} />}
 
-        <button onClick={() => setAddOrderModal(true)}>Añadir pedido</button>
-        <button onClick={() => setListOrdersForm(true)}>Ver pedidos</button>
-        <button onClick={() => setPdfForm(true)}>Hacer factura</button>
+        <Form addOrder={addOrder} emptyList={emptyList} emptyCondition={orders.length !== 0} />
+
+        {orders.length !== 0 && <button onClick={() => setListOrdersForm(true)}>Ver pedidos ({orders.length})</button>}
+        {orders.length !== 0 && <button onClick={() => setPdfForm(true)}>Hacer factura</button>}
       </div>
     </main>
   );

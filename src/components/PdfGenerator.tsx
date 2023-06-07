@@ -16,7 +16,7 @@ interface Props {
 const PdfGenerator: React.FC<Props> = ({ orders, refreshPage, orderSended }: Props) => {
 
     const [date, setDate] = useState('');
-    const text = 'Buen día, aquí le dejo el presupuesto del pedido que nos ha solicitado a través de nuestra página web. En caso de tener alguna duda o comentario, no dude en comunicarse con nosotros. Desde ya, muchas gracias y le deseamos que siga bien.'
+    const text = `Buen día, aquí le dejo el presupuesto del pedido que nos ha solicitado a través de nuestra página web. En caso de tener alguna duda o comentario, no dude en comunicarse con nosotros. Desde ya, muchas gracias y le deseamos que siga bien.`
 
     const copyText = (texto: string) => {
         const input = document.createElement('input');
@@ -59,7 +59,7 @@ const PdfGenerator: React.FC<Props> = ({ orders, refreshPage, orderSended }: Pro
     }
 
     const getText = () => {
-        let finalText = ' *Elementos faltantes para la producción de la cortina: ';
+        let finalText = '*Elementos faltantes para la producción de la cortina: ';
         let emptyElements = getEmptyInfo()
 
         if (emptyElements.length === 0) return text
@@ -73,9 +73,7 @@ const PdfGenerator: React.FC<Props> = ({ orders, refreshPage, orderSended }: Pro
         return text + finalText
     }
 
-    useEffect(() => {
-        getDate();
-    }, []);
+    useEffect(() => getDate(), []);
 
 
     return (
