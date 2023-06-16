@@ -13,7 +13,7 @@ const App = () => {
   const [orders, setOrders] = useState<Array<Order>>([])
 
   const addOrder: any = (productWidth: number, productHeight: number, stripWidth: number, stripThickness: number, stripColor: string) => {
-    let order: Order = { productWidth: productWidth, productHeight: productHeight, stripWidth: stripWidth, stripThickness: stripThickness, stripColor: stripColor, price: (productHeight * productWidth * PRICEM2) }
+    let order: Order = { productWidth: productWidth, productHeight: productHeight, stripWidth: stripWidth, stripThickness: stripThickness, stripColor: stripColor, price: (productHeight * productWidth * PRICEM2) }// + Math.ceil(productWidth) * 20600
     setOrders([...orders, order])
   }
 
