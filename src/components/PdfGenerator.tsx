@@ -104,7 +104,7 @@ const PdfGenerator: React.FC<Props> = ({
             alt="Fondo"
           />
           <p className="date">{date}</p>
-          <h1 id="title">Flete para Cortinas de PVC</h1>
+          <h1 id="title">Cortinas de PVC</h1>
           <Table orders={orders} />
           <Footer />
         </section>

@@ -25,14 +25,8 @@ const Table = ({ orders }: Props) => {
               <tr key={index}>
                 <td>{order.productWidth}m</td>
                 <td>{order.productHeight}m</td>
-                <td>
-                  {order.stripWidth}
-                  {typeof order.stripWidth === "number" && "mm"}
-                </td>
-                <td>
-                  {order.stripThickness}
-                  {typeof order.stripThickness === "number" && "mm"}
-                </td>
+                <td>{order.stripWidth}mm</td>
+                <td>{order.stripThickness}mm</td>
                 <td>{order.stripColor}</td>
                 <td>{numberFormat(order.price)}</td>
               </tr>
