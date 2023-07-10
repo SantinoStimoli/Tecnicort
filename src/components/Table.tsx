@@ -2,6 +2,7 @@ import numberFormat from "../services/numberFormat";
 import { Order } from "../interfaces/interfaces";
 import InfoList from "./InfoList";
 import TotalPrice from "./TotalPrice";
+import tableFormat from "../services/tableFormat";
 
 interface Props {
   orders: Array<Order>;
@@ -25,8 +26,8 @@ const Table = ({ orders }: Props) => {
               <tr key={index}>
                 <td>{order.productWidth}m</td>
                 <td>{order.productHeight}m</td>
-                <td>{order.stripWidth}mm</td>
-                <td>{order.stripThickness}mm</td>
+                <td>{tableFormat(order.stripWidth)}</td>
+                <td>{tableFormat(order.stripThickness)}</td>
                 <td>{order.stripColor}</td>
                 <td>{numberFormat(order.price)}</td>
               </tr>
