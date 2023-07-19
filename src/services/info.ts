@@ -10,7 +10,7 @@ export const STRIP__PROPS = {
 
 export const FORM_DATA: FormData = {
   stripWidth: [100, 200, 300],
-  stripThickness: [1, 2, 3],
+  stripThickness: [1, 1.5, 2, 3],
   stripColor: [
     "Cristal",
     "Blanco",
