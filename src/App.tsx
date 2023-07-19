@@ -11,21 +11,25 @@ const App = () => {
   const [pdfForm, setPdfForm] = useState(false);
   const [orders, setOrders] = useState<Array<Order>>([]);
 
-  const addOrder: any = (
+  const addOrder = (
     productWidth: number,
     productHeight: number,
     stripWidth: number,
     stripThickness: number,
     stripColor: string
-  ) => {
+  ): void => {
     let order: Order = {
       productWidth: productWidth,
       productHeight: productHeight,
       stripWidth: stripWidth,
       stripThickness: stripThickness,
       stripColor: stripColor,
-      price: productHeight * productWidth * PRICEM2,
-    }; // + Math.ceil(productWidth) * 20600
+      price:
+        productHeight *
+        productWidth *
+        PRICEM2 *
+        (stripThickness === 3 ? 1.2 : 1),
+    };
     setOrders([...orders, order]);
   };
 
