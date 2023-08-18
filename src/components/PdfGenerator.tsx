@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Order } from "../interfaces/interfaces";
 import html2pdf from "html2pdf.js";
 import Table from "./Table";
 import { STRIP__PROPS } from "../services/info";
 import Footer from "./Footer";
-import fondo from "../assets/fondo.jpg";
+import LOGO from "../assets/LOGO-TECNICORT.png";
 
 interface Props {
   orders: Array<Order>;
@@ -19,6 +19,10 @@ const PdfGenerator: React.FC<Props> = ({
 }: Props) => {
   const [date, setDate] = useState("");
   const text = `Buen día, aquí le dejo el presupuesto del pedido que nos ha solicitado a través de nuestra página web. En caso de tener alguna duda o comentario, no dude en comunicarse con nosotros. Desde ya, muchas gracias y le deseamos que siga bien.`;
+
+  const [ShipmentTable, setShipmentTable] = useState(0);
+
+  const shipment = useRef<HTMLInputElement>(null);
 
   const copyText = (texto: string) => {
     const input = document.createElement("input");
@@ -98,14 +102,17 @@ const PdfGenerator: React.FC<Props> = ({
     <section className="modal-bg pdf">
       <article className="modal pdf">
         <section id="pdf-content">
-          <img
-            className="border-b-4 pb-5 border-dashed border-red-300"
-            src={fondo}
-            alt="Fondo"
-          />
+          <div className="w-full border-b-4 border-dashed border-red-300 p-3 flex items-baseline">
+            <img
+              className="w-[250px] flex-grow basis-0"
+              src={LOGO}
+              alt="Fondo"
+            />
+            <h1 id="title">Cortinas de PVC</h1>
+            <div className="w-[250px] flex-grow basis-0"></div>
+          </div>
           <p className="date">{date}</p>
-          <h1 id="title">Cortinas de PVC</h1>
-          <Table orders={orders} />
+          <Table orders={orders} shipment={ShipmentTable} />
           <Footer />
         </section>
 
@@ -114,6 +121,20 @@ const PdfGenerator: React.FC<Props> = ({
           <button type="button" onClick={() => refreshPage()}>
             Cancelar
           </button>
+          <input
+            onChange={() =>
+              setShipmentTable(
+                parseInt(
+                  shipment.current?.value !== "" ? shipment.current?.value : "0"
+                )
+              )
+            }
+            ref={shipment}
+            className="w-14 ml-5 text-center"
+            type="number"
+            step="any"
+            placeholder="Envío"
+          />
         </footer>
       </article>
     </section>

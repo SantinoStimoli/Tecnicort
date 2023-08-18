@@ -16,7 +16,9 @@ const App = () => {
     productHeight: number,
     stripWidth: number,
     stripThickness: number,
-    stripColor: string
+    stripColor: string,
+    price: number,
+    priceM2: number
   ): void => {
     let order: Order = {
       productWidth: productWidth,
@@ -25,10 +27,12 @@ const App = () => {
       stripThickness: stripThickness,
       stripColor: stripColor,
       price:
-        productHeight *
-        productWidth *
-        PRICEM2 *
-        (stripThickness === 3 ? 1.2 : 1),
+        price.toString() !== ""
+          ? price
+          : productHeight *
+            productWidth *
+            (priceM2.toString() !== "" ? priceM2 : PRICEM2) *
+            (stripThickness === 3 ? 1.2 : 1),
     };
     setOrders([...orders, order]);
   };

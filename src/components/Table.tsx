@@ -6,9 +6,10 @@ import tableFormat from "../services/tableFormat";
 
 interface Props {
   orders: Array<Order>;
+  shipment: number;
 }
 
-const Table = ({ orders }: Props) => {
+const Table = ({ orders, shipment }: Props) => {
   return (
     <div className="flex flex-col px-28 gap-2">
       <table>
@@ -36,8 +37,20 @@ const Table = ({ orders }: Props) => {
         </tbody>
       </table>
 
-      <InfoList />
+      {shipment === 0 ? (
+        ""
+      ) : (
+        <table className="ml-72 w-[300px]">
+          <tbody className="border border-red-500">
+            <tr>
+              <td>Envío:</td>
+              <td>{numberFormat(shipment)}</td>
+            </tr>
+          </tbody>
+        </table>
+      )}
 
+      <InfoList />
       <TotalPrice orders={orders} />
     </div>
   );

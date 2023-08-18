@@ -5,154 +5,148 @@
 /* GENERAL */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input,
 select {
-    @apply border-b border-b-slate-200
+  @apply border-b border-b-slate-200;
 }
 
 select {
-    @apply cursor-pointer
+  @apply cursor-pointer;
 }
 
 button {
-    @apply border border-slate-200 rounded px-4 py-2
+  @apply border border-slate-200 rounded px-4 py-2;
 }
 
 button:hover {
-    @apply bg-slate-200
+  @apply bg-slate-200;
 }
 
 *::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 5px;
+  -webkit-appearance: none;
+  width: 5px;
 }
 
 *::-webkit-scrollbar-thumb {
-    @apply bg-slate-200 rounded;
+  @apply bg-slate-200 rounded;
 }
-
-
 
 /* FORMULARIO */
 .modal-bg {
-    @apply absolute w-full bg-black bg-opacity-30 flex justify-center items-center top-0 bottom-0 left-0 h-full;
+  @apply absolute w-full bg-black bg-opacity-30 flex justify-center items-center top-0 bottom-0 left-0 h-full;
 }
 
 .modal-bg.pdf {
-    @apply absolute w-full bg-black bg-opacity-30 flex justify-center items-center top-0 bottom-0;
-    height: 128vh;
+  @apply absolute w-full bg-black bg-opacity-30 flex justify-center items-center top-0 bottom-0;
+  height: 128vh;
 }
 
 .modal {
-    @apply border border-slate-200 rounded px-9 py-7 bg-white
+  @apply border border-slate-200 rounded px-9 py-7 bg-white;
 }
 
-.modal>* {
-    @apply mb-5
+.modal > * {
+  @apply mb-5;
 }
 
-form article>* {
-    @apply mb-2
+form article > * {
+  @apply mb-2;
 }
 
-form section>* {
-    @apply mb-1 w-1/2
+form section > * {
+  @apply mb-1 w-1/2;
 }
 
 .modal h1 {
-    @apply text-center uppercase text-2xl font-bold
+  @apply text-center uppercase text-2xl font-bold;
 }
 
 form h2 {
-    @apply text-xl
+  @apply text-xl;
 }
 
 form h2::after {
-    content: ':';
+  content: ":";
 }
 
 form section {
-    @apply flex items-center
+  @apply flex items-center;
 }
 
-@media (max-width:470px) {
-    form section {
-        @apply flex flex-col
-    }
+@media (max-width: 470px) {
+  form section {
+    @apply flex flex-col;
+  }
 
-    form section>* {
-        @apply w-full
-    }
+  form section > * {
+    @apply w-full;
+  }
 }
 
 .div-input {
-    @apply flex flex-col px-2
+  @apply flex flex-col px-2;
 }
 
 .modal footer {
-    @apply flex justify-center w-full mt-10
+  @apply flex justify-center w-full mt-10;
 }
 
 .footer button:first-of-type {
-    @apply mr-2
+  @apply mr-2;
 }
 
 .footer button:last-of-type {
-    @apply ml-2
+  @apply ml-2;
 }
 
 /* LISTA */
 .order-list {
-    max-height: 300px;
-    overflow-y: scroll;
+  max-height: 300px;
+  overflow-y: scroll;
 }
 
 .order {
-    @apply border px-5 py-3 mb-5
+  @apply border px-5 py-3 mb-5;
 }
 
 .order-list .order:last-of-type {
-    @apply mb-0
+  @apply mb-0;
 }
 
 .bx-x {
-    @apply text-red-500 cursor-pointer rounded-full ml-5 transition-all
+  @apply text-red-500 cursor-pointer rounded-full ml-5 transition-all;
 }
 
 .bx-x:hover {
-    @apply bg-slate-200
+  @apply bg-slate-200;
 }
 
 .list-section {
-    @apply flex flex-col pt-3
+  @apply flex flex-col pt-3;
 }
 
 /* PDF */
 #pdf-content {
-    @apply flex flex-col items-center justify-between align-middle;
-    height: 1056px;
-    width: 816px;
-}
-
-img {
-    @apply w-full;
+  @apply flex flex-col items-center justify-between align-middle;
+  height: 1056px;
+  width: 816px;
 }
 
 table {
-    @apply w-full text-left
+  @apply w-full text-left;
 }
 
 td,
 th {
-    @apply px-3 pb-4 border-red-500 border border-t-0
+  @apply px-3 pb-4 border-red-500 border border-t-0;
 }
 
 tr:nth-of-type(odd) {
-    background: rgba(255, 0, 0, 0.1);
+  background: rgba(255, 0, 0, 0.1);
 }
 
 td:first-of-type,
@@ -161,44 +155,44 @@ th:nth-of-type(3),
 th:nth-of-type(5),
 td:nth-of-type(3),
 td:nth-of-type(5) {
-    border-left: none;
-    border-right: none;
+  border-left: none;
+  border-right: none;
 }
 
 td:last-of-type,
 th:last-of-type {
-    border-right: none;
+  border-right: none;
 }
 
 .modal.pdf {
-    @apply absolute border-none p-0;
+  @apply absolute border-none p-0;
 }
 
 ul.info {
-    @apply text-xs flex flex-col items-start tracking-tighter;
-    line-height: .95;
+  @apply text-xs flex flex-col items-start tracking-tighter;
+  line-height: 0.95;
 }
 
 #title {
-    @apply text-4xl font-bold uppercase absolute top-40
+  @apply text-2xl font-bold uppercase;
 }
 
 .date {
-    @apply absolute right-5 top-44 font-bold text-xl
+  @apply absolute right-5 top-5 font-bold text-xl;
 }
 
 #pdf-content footer {
-    @apply w-full bg-red-600 pb-8 pt-5 text-white flex items-start text-xs justify-center
+  @apply w-full bg-red-600 pb-8 pt-5 text-white flex items-start text-xs justify-center;
 }
 
 #pdf-content footer h1 {
-    font-size: .9rem;
+  font-size: 0.9rem;
 }
 
-#pdf-content footer section>div {
-    @apply flex items-center mx-2
+#pdf-content footer section > div {
+  @apply flex items-center mx-2;
 }
 
-#pdf-content footer section>div>i {
-    @apply mr-1
+#pdf-content footer section > div > i {
+  @apply mr-1;
 }

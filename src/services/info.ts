@@ -1,6 +1,6 @@
 import { FormData } from "../interfaces/interfaces";
 
-export const PRICEM2 = 12000;
+export const PRICEM2 = 14500;
 
 export const STRIP__PROPS = {
   width: "Ancho",
@@ -22,3 +22,5 @@ export const FORM_DATA: FormData = {
     "Plateado",
   ],
 };
+
+// Tengo que agregar input de precio, agregar input con precio m2, agregar input con envio
