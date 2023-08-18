@@ -3,6 +3,7 @@ import { Order } from "../interfaces/interfaces";
 import InfoList from "./InfoList";
 import TotalPrice from "./TotalPrice";
 import tableFormat from "../services/tableFormat";
+import { useEffect, useState } from "react";
 
 interface Props {
   orders: Array<Order>;
@@ -10,6 +11,21 @@ interface Props {
 }
 
 const Table = ({ orders, shipment }: Props) => {
+  const [totalPrice, setTotalPrice] = useState(getTotal());
+
+  function getTotal() {
+    let total: number = 0;
+    orders.forEach((order) => {
+      total = total + order.price;
+      return total;
+    });
+    return total;
+  }
+
+  useEffect(() => {
+    setTotalPrice(getTotal() + shipment);
+  }, [shipment]);
+
   return (
     <div className="flex flex-col px-28 gap-2">
       <table>
@@ -40,18 +56,20 @@ const Table = ({ orders, shipment }: Props) => {
       {shipment === 0 ? (
         ""
       ) : (
-        <table className="ml-72 w-[300px]">
-          <tbody className="border border-red-500">
-            <tr>
-              <td>Envío:</td>
-              <td>{numberFormat(shipment)}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="w-full flex justify-end">
+          <table className="w-[300px]">
+            <tbody className="border border-red-500">
+              <tr>
+                <td>Envío:</td>
+                <td>{numberFormat(shipment)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       )}
 
       <InfoList />
-      <TotalPrice orders={orders} />
+      <TotalPrice totalPrice={totalPrice} />
     </div>
   );
 };
