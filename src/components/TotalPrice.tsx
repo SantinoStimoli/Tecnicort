@@ -5,10 +5,18 @@ interface Props {
 
 const TotalPrice = ({ totalPrice }: Props) => {
   return (
-    <div className="flex justify-between w-full items-center">
-      <span className="text-xs mr-10">
-        *En caso de pagar en efectivo se le descuenta el IVA
-      </span>
+    <div className="flex justify-between w-full items-end">
+      <div className="flex justify-start">
+        <ul className="info">
+          <li>- Las tiras vienen encimadas al 65%</li>
+          <li>- Sujetadas a un perfil de aluminio</li>
+          <li>
+            - Colores: Cristal, blanco, azul, rojo, amarillo, verde, fume,
+            plateado
+          </li>
+          <li>- Plazo de entrega 3 días</li>
+        </ul>
+      </div>
       <span>
         Precio total: <b>{numberFormat(totalPrice)} + IVA</b>
       </span>

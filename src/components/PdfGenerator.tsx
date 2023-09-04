@@ -122,18 +122,18 @@ const PdfGenerator: React.FC<Props> = ({
             Cancelar
           </button>
           <input
-            onChange={() =>
+            onChange={() => {
               setShipmentTable(
                 parseInt(
                   shipment.current?.value !== "" ? shipment.current?.value : "0"
                 )
-              )
-            }
+              );
+            }}
             ref={shipment}
             className="w-14 ml-5 text-center"
             type="number"
             step="any"
-            placeholder="Envío"
+            placeholder="Extras"
           />
         </footer>
       </article>

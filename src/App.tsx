@@ -28,7 +28,7 @@ const App = () => {
       stripColor: stripColor,
       price:
         price.toString() !== ""
-          ? price
+          ? parseInt(price.toString())
           : productHeight *
             productWidth *
             (priceM2.toString() !== "" ? priceM2 : PRICEM2) *
