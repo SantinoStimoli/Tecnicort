@@ -1,26 +1,24 @@
-import { FormData } from "../interfaces/interfaces";
+import { FormData } from '../interfaces/interfaces'
 
-export const PRICEM2 = 14500;
+export const PRICEM2 = 16000
 
 export const STRIP__PROPS = {
-  width: "Ancho",
-  thickness: "Espesor",
-  color: "Color",
-};
+  width: 'Ancho',
+  thickness: 'Espesor',
+  color: 'Color'
+}
 
 export const FORM_DATA: FormData = {
   stripWidth: [100, 200, 300],
   stripThickness: [1, 1.5, 2, 3],
   stripColor: [
-    "Cristal",
-    "Blanco",
-    "Azul",
-    "Rojo",
-    "Amarillo",
-    "Verde",
-    "Fume",
-    "Plateado",
-  ],
-};
-
-// Tengo que agregar input de precio, agregar input con precio m2, agregar input con envio
+    'Cristal',
+    'Blanco',
+    'Azul',
+    'Rojo',
+    'Amarillo',
+    'Verde',
+    'Fume',
+    'Plateado'
+  ]
+}
