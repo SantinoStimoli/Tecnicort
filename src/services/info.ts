@@ -1,6 +1,6 @@
 import { FormData } from '../interfaces/interfaces'
 
-export const PRICEM2 = 16000
+export const PRICEM2 = 18000
 
 export const STRIP__PROPS = {
   width: 'Ancho',
