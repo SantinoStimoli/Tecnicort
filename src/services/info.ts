@@ -19,7 +19,7 @@ export const FORM_DATA: FormData = {
     'Rojo',
     'Amarillo',
     'Verde',
-    'Fume',
+    'Fumé',
     'Plateado'
   ]
 }

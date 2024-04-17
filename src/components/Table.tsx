@@ -46,10 +46,12 @@ const Table = ({ orders, shipment }: Props) => {
                   <td>{order.productWidth}m</td>
                   <td>{order.productHeight}m</td>
                   <td>
-                    {order.stripWidth == 'No definido' &&
+                    {order.stripWidth == 'No definido' ||
                     order.stripThickness == 'No definido'
                       ? 'No definido'
-                      : `${order.stripWidth}mm x ${order.stripThickness}mm`}
+                      : `${tableFormat(order.stripWidth)} x ${tableFormat(
+                          order.stripThickness
+                        )}`}
                   </td>
                   <td>{order.stripColor}</td>
                   <td>{numberFormat(order.subtotal)}</td>
