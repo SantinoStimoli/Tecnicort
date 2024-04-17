@@ -14,7 +14,7 @@ const TotalPrice = ({ totalPrice }: Props) => {
             - Colores: Cristal, blanco, azul, rojo, amarillo, verde, fume,
             plateado
           </li>
-          <li>- Plazo de entrega 3 días</li>
+          <li>- Plazo de entrega 3 días hábiles</li>
         </ul>
       </div>
       <span>
