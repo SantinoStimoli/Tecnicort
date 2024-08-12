@@ -1,7 +1,7 @@
 import { FormData } from '../interfaces/interfaces'
 
 export const PRICEM2 = 36000
-export const PRICEPITON = 23000
+export const PRICEPITON = 11500
 
 export const STRIP__PROPS = {
   width: 'Ancho',
